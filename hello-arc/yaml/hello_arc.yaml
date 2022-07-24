@@ -30,7 +30,7 @@ spec:
       - name: hello-arc
         image: azurearcjumpstart.azurecr.io/hello-arc-gitops:latest
         ports:
-        - containerPort: 8082
+        - containerPort: 8080
         env:
         - name: MESSAGE
           value: Welcome to Azure Arc GitOps Demo!

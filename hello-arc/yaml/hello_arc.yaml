@@ -7,7 +7,7 @@ spec:
   type: ClusterIP
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 8081
   selector:
     app: hello-arc
 ---
@@ -30,7 +30,7 @@ spec:
       - name: hello-arc
         image: azurearcjumpstart.azurecr.io/hello-arc-gitops:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
         env:
         - name: MESSAGE
           value: Welcome to Azure Arc GitOps Demo!

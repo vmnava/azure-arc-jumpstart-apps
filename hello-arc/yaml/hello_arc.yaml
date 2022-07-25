@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: contosoair
-        image: labnava.azurecr.io/contosoair:latest
+        image: acrtardemo.azurecr.io/contosoair:latest
         ports:
         - containerPort: 8080

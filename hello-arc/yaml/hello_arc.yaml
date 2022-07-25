@@ -2,35 +2,32 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hello-arc
-  namespace: hello-arc
+  namespace: contosoair
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
-  - port: 80
-    targetPort: 8081
+  - port: 32325
+    targetPort: 8080
   selector:
-    app: hello-arc
+    app: contosoair
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-arc
-  namespace: hello-arc
+  name: contosoair
+  namespace: contosoair
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: hello-arc
+      app: contosoair
   template:
     metadata:
       labels:
-        app: hello-arc
+        app: contosoair
     spec:
       containers:
-      - name: hello-arc
-        image: azurearcjumpstart.azurecr.io/hello-arc-gitops:latest
+      - name: contosoair
+        image: labnava.azurecr.io/contosoair:latest
         ports:
-        - containerPort: 8081
-        env:
-        - name: MESSAGE
-          value: Welcome to Azure Arc GitOps Demo!
+        - containerPort: 8080
